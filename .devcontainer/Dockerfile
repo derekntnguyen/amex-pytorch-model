@@ -42,5 +42,9 @@ ENV NVM_SYMLINK_CURRENT=true \
 RUN bash /tmp/library-scripts/node-debian.sh "${NVM_DIR}" "${NODE_VERSION}" "${USERNAME}" \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
+# COPY --chown=vscode requirements.txt /tmp/pip-tmp/
+# RUN python3 -m pip3 --user --disable-pip-version-check --no-cache-dir install -r /tmp/pip-tmp/requirements.txt \
+#     && rm -rf /tmp/pip-tmp
+
 # Remove library scripts for final image
 RUN rm -rf /tmp/library-scripts
